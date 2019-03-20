@@ -1,0 +1,8 @@
+Baseline: a = 3.0, l = 7.5, fwhm = 1.0
+All other parameters per inputs.dat on Github as of May 14, 2018
+This baseline: fIV = .290 rad/day
+
+source rate = 1.5e28 (-50%): .295 rad/day
+source rate = 4.5e28 (+50%): .288 rad/day 
+source exp = -10.0: .29 rad/day
+source exp = -18.0: .29 rad/day 

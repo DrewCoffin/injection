@@ -1,0 +1,5 @@
+Io has velocity with respect to System III of -56.8 km/s.
+
+This gives the moon a revolution of 12.95 hours in System III. 
+
+This is a beat period of 3.28 days between Io and System III, or 1.915 rad/day.
