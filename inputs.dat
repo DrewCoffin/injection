@@ -18,7 +18,7 @@
 0.05                  hote_amp (0.05)
 279.0                 hote_t0
 60.0                  hote_width
-4                     number of days for the run
+25                    number of days for the run
 1.0                   number of outputs per day
 0.00                  s value for upwind scheme
 0.030                 initial radial velocity (km/s)

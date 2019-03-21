@@ -456,8 +456,8 @@ subroutine model()
     do j=1, LAT_SIZE
       lat%z(j)= (j-1) * h%elec / 10.0  !Initializing lat%z
       lat%elec(j) = n%elec*exp(-(lat%z(j)/h%elec)**2)
-      lati%elecHot(j) = n%elecHot!*exp(-(lat%z(j)/h%elec)**2)
-      lat%ex(j) = n%ex!*exp(-(lat%z(j)/h%elec)**2)
+      lati%elecHot(j) = n%elecHot*exp(-(lat%z(j)/h%elec)**2)
+      lat%ex(j) = n%ex*exp(-(lat%z(j)/h%elec)**2)
     end do
 
     !if( mype .eq. 0 ) then

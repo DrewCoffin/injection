@@ -1,6 +1,6 @@
 README FILE
 
-Code written by Matthew Copper (mrcopper@alaska.edu) for Master degree research at University of Alaska Fairbanks.  
+Code written by Matthew Copper (mrcopper@alaska.edu) for Master degree research at University of Alaska Fairbanks. Altered by Drew Coffin (dacoffin@alaska.edu).  
 
 This code simulates Io plasma torus on a global scale in 2 dimensions. The code is written in fortran 90 using mpi for parallelization. The script 'do' compiles the program, runs the executable, and plots the results. The program output for run time info and debugging statement is piped to 'runlog' and does not appear on screen. The program can be controlled through the 'inputs.dat', debug.f90, and ParallelVars.f90. The main portion of the code is in onebox.f90. supporting functions are in functions.f90 and the numerical chemistry iteration scheme is written in timeStep.f90. Radial transport code is in diffusion.f90. 
 
@@ -20,4 +20,3 @@ This code uses numerical methods which have certain criteria for stability. Chan
 
 ulimit -n 4096 ; to run more than 18x18 processors
 
-Git commit 66610bc has old commit information 

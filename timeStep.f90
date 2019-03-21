@@ -302,7 +302,7 @@ MODULE TIMESTEP
     call gtzero(nTp%o2p )
     nTp%elec  = (nrg%elec  + dt * 0.5 * (EFelec  + EF_elec(n1,T1,h1, ind1,dep1,lat1,nu1, ft1)))
     call gtzero(nTp%elec )
-    nTp%ex  = (nrg%ex  + dt * 0.5 * (EFex  + EF_ex(n1,T1,h1,ind1,dep1,lat1,nu1, ft1))) 
+    nTp%ex  = (nrg%ex)  + dt * 0.5 * (EFex  + EF_ex(n1,T1,h1,ind1,dep1,lat1,nu1, ft1)) 
     call gtzero(nTp%ex )
 
 !    if(mype .le. 2) print *, rdist, EFelec, T1%elec

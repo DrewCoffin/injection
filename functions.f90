@@ -259,7 +259,7 @@ MODULE FUNCTIONS
       lat%o2p(i) = n%o2p *exp(-(lat%z(i)/h%o2p)**2)
 
       lat%elec(i) = lat%sp(i) + lat%op(i) + 2.0*(lat%s2p(i)+lat%o2p(i)) + 3.0*lat%s3p(i)! + 4*lat%s4p(i) !fix s4pa
-      lat%ex(i) = n%ex !* exp(-(lat%z(i)/h%elec)**2)
+      lat%ex(i) = n%ex* exp(-(lat%z(i)/h%elec)**2)
 !      if(mype .eq. 0) print *, lat%elec(i),  lat%sp(i),lat%s2p(i),lat%s3p(i),lat%op(i),lat%o2p(i)
     end do
 
@@ -650,7 +650,7 @@ end function az_loss
 
     do i=1, LAT_SIZE
       lambda= lambda_ee(ne(i), Te)   
-      if( mype .eq. procno ) print *, 'lambda_ee =', lambda 
+      if( mype .eq. procno .and. i=1) print *, 'lambda_ee =', lambda 
       nu_arr(i)= const*meg*ne(i)*neh*lambda/sqrt((meg*(Te+Teh))**3)
     end do
 
@@ -1067,7 +1067,7 @@ end function az_loss
       !    + v%s3p_ex*(T%s3p - T%ex)&    
        !   + v%op_ex*(T%op - T%ex)&
         !  + v%o2p_ex*(T%o2p - T%ex)&
-      Tex = -1.0*v%elec_ex*abs(T%elec - T%ex)
+      Tex = -0.0*v%elec_ex*abs(T%elec - T%ex)
           !+ v%ex_elecHot*(T%elecHot - T%ex)
 
     !Tex = -1.0*Tex

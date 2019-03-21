@@ -19,10 +19,10 @@ subroutine transport_NL2(nl2, nl2e, dll0, dlla)
   double precision   ::lflux
 ! integer            ::procno
 
-!  procno = 190 !processor number for print statements, 0 is inner boundary
-
   tbout=100.00 !in eV
   tbin=70.00
+  tboutex=1000.00
+  tbinex=1000.00
 
   r0=6.0
   dl2=(dr/Rj)/2.0
@@ -57,7 +57,7 @@ subroutine transport_NL2(nl2, nl2e, dll0, dlla)
       print *, 'pre transport species nl2%ex = ', nl2%ex
       print *, 'nl2e%ex = ', nl2e%ex
    endif
-  call transport_species2(nl2b%ex, nl2%ex, dll, lp, lflux, nl2e%ex, tbout, tbin, nl2out%ex,dllm)
+  call transport_species2(nl2b%ex, nl2%ex, dll, lp, lflux, nl2e%ex, tboutex, tbinex, nl2out%ex,dllm)
   if( mype .eq. procno) print *, 'Post transport species nl2%ex = ', nl2%ex
 
   call get_dNL2_dL(nl2)
