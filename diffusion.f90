@@ -15,14 +15,14 @@ subroutine transport_NL2(nl2, nl2e, dll0, dlla)
   type(density)      ::nl2, nl2e, nl2b, nl2out
   real               ::dll0, dlla
   logical            ::isNaN
-  real               ::tbout, tboutex, tbinex, tbin, r0, rout, dl2, lp, dll, nl, dllm, lm
+  real               ::tbout, tboutex, tbinex, tbin, Tex0, r0, rout, dl2, lp, dll, nl, dllm, lm
   double precision   ::lflux
 ! integer            ::procno
 
   tbout=100.00 !in eV
   tbin=70.00
-  tboutex=1000.00
-  tbinex=1000.00
+  tboutex=1000.0 
+  tbinex=700.0 
 
   r0=6.0
   dl2=(dr/Rj)/2.0
@@ -37,7 +37,7 @@ subroutine transport_NL2(nl2, nl2e, dll0, dlla)
   nl2out%s3p=2.0E34
   nl2out%op =1.0E35
   nl2out%o2p=1.0E35
-  nl2out%ex =1.0E34
+!  nl2out%ex =1.0E33
 
   if( mype .eq. procno) then
       print *, '----Transport species inputs-------'
@@ -60,21 +60,14 @@ subroutine transport_NL2(nl2, nl2e, dll0, dlla)
   call transport_species2(nl2b%ex, nl2%ex, dll, lp, lflux, nl2e%ex, tboutex, tbinex, nl2out%ex,dllm)
   if( mype .eq. procno) print *, 'Post transport species nl2%ex = ', nl2%ex
 
-  call get_dNL2_dL(nl2)
+  call get_dNL2_dL(nl2, nl2out)
 
 end subroutine transport_NL2
 
-subroutine get_dNL2_dL(nl2)
+subroutine get_dNL2_dL(nl2, nl2out)
   type(density)      ::nl2, nl2out
   double precision   ::gradnl2
   double precision   ::TotNL2, TotOut, TotNL2out
-
-  nl2out%sp =4.0E33
-  nl2out%s2p=2.0E34
-  nl2out%s3p=2.0E34
-  nl2out%op =1.0E35
-  nl2out%o2p=1.0E35
-  nl2out%ex =1.0E34
 
   TotNL2 = nl2%sp +nl2%s2p +nl2%s3p +nl2%op +nl2%o2p +nl2%ex
   TotOut = nl2out%sp +nl2out%s2p +nl2out%s3p +nl2out%op +nl2out%o2p +nl2out%ex

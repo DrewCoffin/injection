@@ -19,6 +19,6 @@ logical              ::trans_type=.false.
 
 real                 ::protons=0.0  !<can be added to inputs.dat
 
-integer              ::procno=193   !processor number for print statements, 0 is inner boundary
+integer              ::procno=1930  !processor number for print statements, 0 is inner boundary
 
 END MODULE GLOBAL

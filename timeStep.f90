@@ -55,7 +55,7 @@ MODULE TIMESTEP
     v%s2p_ex = nu_ehi(ex, T%ex, lat%s2p, T%s2p, 2.0, 32.0)
     v%s3p_ex = nu_ehi(ex, T%ex, lat%s3p, T%s3p, 3.0, 32.0)
     v%op_ex = nu_ehi(ex, T%ex, lat%op , T%op , 1.0, 16.0)
-   v%o2p_ex= nu_ehi(ex, T%ex, lat%o2p, T%o2p, 2.0, 16.0)
+    v%o2p_ex= nu_ehi(ex, T%ex, lat%o2p, T%o2p, 2.0, 16.0)
 
 !    v%sp_elecHot = nu_ei(lat%elecHot, T%elecHot, lat%sp , T%sp , 1.0, 32.0)
 !    v%s2p_elecHot= nu_ei(lat%elecHot, T%elecHot, lat%s2p, T%s2p, 2.0, 32.0)

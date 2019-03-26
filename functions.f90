@@ -650,7 +650,7 @@ end function az_loss
 
     do i=1, LAT_SIZE
       lambda= lambda_ee(ne(i), Te)   
-      if( mype .eq. procno .and. i=1) print *, 'lambda_ee =', lambda 
+      if( mype .eq. procno ) print *, 'lambda_ee =', lambda 
       nu_arr(i)= const*meg*ne(i)*neh*lambda/sqrt((meg*(Te+Teh))**3)
     end do
 
@@ -1067,7 +1067,7 @@ end function az_loss
       !    + v%s3p_ex*(T%s3p - T%ex)&    
        !   + v%op_ex*(T%op - T%ex)&
         !  + v%o2p_ex*(T%o2p - T%ex)&
-      Tex = -0.0*v%elec_ex*abs(T%elec - T%ex)
+    Tex = v%elec_ex*(T%elec - T%ex)
           !+ v%ex_elecHot*(T%elecHot - T%ex)
 
     !Tex = -1.0*Tex
